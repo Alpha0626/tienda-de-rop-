@@ -19,7 +19,7 @@ background-attachment:fixed;
 header{
 background:#111827;
 color:white;
-padding:20px;
+padding:25px;
 text-align:center;
 }
 
@@ -31,27 +31,35 @@ gap:10px;
 justify-content:center;
 padding:15px;
 background:#0f172a;
-position:sticky;
-top:0;
-z-index:10;
 }
 
-.menu a{
+.menu button{
 background:#2563eb;
 color:white;
+border:none;
 padding:10px 12px;
 border-radius:8px;
-text-decoration:none;
 font-weight:bold;
+cursor:pointer;
+}
+
+/* SECCIONES */
+.section{
+display:none;
+padding:10px 0;
+}
+
+.section.active{
+display:block;
+}
+
+.section-title{
+text-align:center;
+color:white;
+margin:20px 0;
 }
 
 /* GRID */
-.section-title{
-color:white;
-text-align:center;
-margin:25px 0 10px;
-}
-
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -78,7 +86,10 @@ cursor:pointer;
 }
 
 /* CARRUSEL */
-.slider{position:relative;}
+.slider{
+position:relative;
+}
+
 .slider img{
 width:100%;
 height:180px;
@@ -86,7 +97,10 @@ object-fit:cover;
 border-radius:8px;
 display:none;
 }
-.slider img.active{display:block;}
+
+.slider img.active{
+display:block;
+}
 
 .slider button{
 position:absolute;
@@ -99,12 +113,10 @@ padding:6px 10px;
 border-radius:50%;
 cursor:pointer;
 }
+
 .prev{left:5px;}
 .next{right:5px;}
 
-html{
-scroll-behavior:smooth;
-}
 </style>
 </head>
 
@@ -112,22 +124,23 @@ scroll-behavior:smooth;
 
 <header>
 <h1>🛍️ NEXORA</h1>
-<p>Tienda online</p>
+<p>Selecciona una categoría</p>
 </header>
 
-<!-- MENÚ CATEGORÍAS -->
+<!-- CATEGORÍAS -->
 <div class="menu">
-<a href="#sudaderas">Sudaderas</a>
-<a href="#camisas">Camisas</a>
-<a href="#shorts">Shorts</a>
-<a href="#perfumes">Perfumes</a>
-<a href="#gorras">Gorras</a>
-<a href="#tenis">Tenis</a>
-<a href="#originales">Perfumes Originales</a>
+<button onclick="openCat('sudaderas')">Sudaderas</button>
+<button onclick="openCat('camisas')">Camisas</button>
+<button onclick="openCat('shorts')">Shorts</button>
+<button onclick="openCat('perfumes')">Perfumes</button>
+<button onclick="openCat('gorras')">Gorras</button>
+<button onclick="openCat('tenis')">Tenis</button>
+<button onclick="openCat('originales')">Perfumes Originales</button>
 </div>
 
 <!-- SUDADERAS -->
-<h2 class="section-title" id="sudaderas">Sudaderas</h2>
+<div id="sudaderas" class="section active">
+<h2 class="section-title">Sudaderas</h2>
 <div class="grid">
 
 <div class="card">
@@ -138,132 +151,76 @@ scroll-behavior:smooth;
 <img src="producto1c.png">
 <button class="next">▶</button>
 </div>
-<h3>Sudadera 1</h3><p>$999</p>
+<h3>Sudadera 1</h3>
+<p>$999</p>
 <a class="btn pedir">Pedir</a>
 </div>
 
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto2-1.png">
-<img src="producto2-2.png">
-<img src="producto2-3.png">
-<button class="next">▶</button>
 </div>
-<h3>Sudadera 2</h3><p>$999</p>
-<a class="btn pedir">Pedir</a>
-</div>
-
 </div>
 
 <!-- CAMISAS -->
-<h2 class="section-title" id="camisas">Camisas</h2>
-<div class="grid">
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto3-1.png">
-<img src="producto3-2.png">
-<img src="producto3-3.png">
-<button class="next">▶</button>
-</div>
-<h3>Camisa 1</h3><p>$799</p>
-<a class="btn pedir">Pedir</a>
-</div>
+<div id="camisas" class="section">
+<h2 class="section-title">Camisas</h2>
+<div class="grid"></div>
 </div>
 
 <!-- SHORTS -->
-<h2 class="section-title" id="shorts">Shorts</h2>
-<div class="grid">
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto4-1.png">
-<img src="producto4-2.png">
-<img src="producto4-3.png">
-<button class="next">▶</button>
-</div>
-<h3>Short 1</h3><p>$699</p>
-<a class="btn pedir">Pedir</a>
-</div>
+<div id="shorts" class="section">
+<h2 class="section-title">Shorts</h2>
+<div class="grid"></div>
 </div>
 
 <!-- PERFUMES -->
-<h2 class="section-title" id="perfumes">Perfumes</h2>
-<div class="grid">
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto5-1.png">
-<img src="producto5-2.png">
-<img src="producto5-3.png">
-<button class="next">▶</button>
-</div>
-<h3>Perfume 1</h3><p>$1200</p>
-<a class="btn pedir">Pedir</a>
-</div>
+<div id="perfumes" class="section">
+<h2 class="section-title">Perfumes</h2>
+<div class="grid"></div>
 </div>
 
 <!-- GORRAS -->
-<h2 class="section-title" id="gorras">Gorras</h2>
-<div class="grid">
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto6-1.png">
-<img src="producto6-2.png">
-<img src="producto6-3.png">
-<button class="next">▶</button>
-</div>
-<h3>Gorra 1</h3><p>$450</p>
-<a class="btn pedir">Pedir</a>
-</div>
+<div id="gorras" class="section">
+<h2 class="section-title">Gorras</h2>
+<div class="grid"></div>
 </div>
 
 <!-- TENIS -->
-<h2 class="section-title" id="tenis">Tenis</h2>
-<div class="grid">
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto7-1.png">
-<img src="producto7-2.png">
-<img src="producto7-3.png">
-<button class="next">▶</button>
-</div>
-<h3>Tenis 1</h3><p>$1500</p>
-<a class="btn pedir">Pedir</a>
-</div>
+<div id="tenis" class="section">
+<h2 class="section-title">Tenis</h2>
+<div class="grid"></div>
 </div>
 
-<!-- PERFUMES ORIGINALES -->
-<h2 class="section-title" id="originales">Perfumes Originales</h2>
-<div class="grid">
-<div class="card">
-<div class="slider">
-<button class="prev">◀</button>
-<img class="active" src="producto8-1.png">
-<img src="producto8-2.png">
-<img src="producto8-3.png">
-<button class="next">▶</button>
-</div>
-<h3>Perfume Original 1</h3><p>$2500</p>
-<a class="btn pedir">Pedir</a>
-</div>
+<!-- ORIGINALES -->
+<div id="originales" class="section">
+<h2 class="section-title">Perfumes Originales</h2>
+<div class="grid"></div>
 </div>
 
 <script>
+
+/* CAMBIAR CATEGORÍA */
+function openCat(id){
+document.querySelectorAll('.section').forEach(s=>{
+s.classList.remove('active');
+});
+document.getElementById(id).classList.add('active');
+}
+
+/* WHATSAPP + CARRUSEL */
 document.querySelectorAll(".card").forEach(card => {
 
 const nombre = card.querySelector("h3").innerText;
 const btn = card.querySelector(".pedir");
 
+if(btn){
 btn.addEventListener("click", () => {
 const url = `https://wa.me/523329166067?text=${encodeURIComponent("Hola quiero el " + nombre)}`;
 window.open(url, "_blank");
 });
+}
 
 const slider = card.querySelector(".slider");
+if(!slider) return;
+
 const imgs = slider.querySelectorAll("img");
 const prev = slider.querySelector(".prev");
 const next = slider.querySelector(".next");
@@ -275,11 +232,19 @@ imgs.forEach(img => img.classList.remove("active"));
 imgs[i].classList.add("active");
 }
 
-next.onclick = () => { index = (index+1)%imgs.length; show(index); }
-prev.onclick = () => { index = (index-1+imgs.length)%imgs.length; show(index); }
+next?.addEventListener("click", ()=> {
+index = (index + 1) % imgs.length;
+show(index);
+});
+
+prev?.addEventListener("click", ()=> {
+index = (index - 1 + imgs.length) % imgs.length;
+show(index);
+});
 
 show(index);
 });
+
 </script>
 
 </body>
