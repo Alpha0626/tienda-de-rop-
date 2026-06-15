@@ -6,112 +6,56 @@
 <title>NEXORA PRO</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#0b1220;
-color:white;
-}
+body{margin:0;font-family:Arial;background:#0b1220;color:white;}
 
-/* HEADER */
-header{
-text-align:center;
-padding:20px;
-background:#111827;
-}
+header{text-align:center;padding:20px;background:#111827;}
 
-/* MENU */
 .menu{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-padding:15px;
-background:#0f172a;
-position:sticky;
-top:0;
-z-index:10;
+display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+padding:10px;background:#0f172a;position:sticky;top:0;
 }
 
 .menu button{
-background:#2563eb;
-border:none;
-padding:10px;
-border-radius:8px;
-color:white;
-font-weight:bold;
-cursor:pointer;
+background:#2563eb;border:none;color:white;
+padding:10px;border-radius:8px;font-weight:bold;cursor:pointer;
 }
 
-/* SECCIONES */
 .section{display:none;padding:20px;}
 .section.active{display:block;}
 
-h2{text-align:center;margin:10px 0;}
+h2{text-align:center;}
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
 }
 
-/* CARD */
 .card{
-background:white;
-color:black;
-border-radius:15px;
-padding:10px;
+background:white;color:black;
+border-radius:15px;padding:10px;
 }
 
-/* CARRUSEL */
 .slider{position:relative;}
 .slider img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:10px;
-display:none;
+width:100%;height:180px;object-fit:cover;
+border-radius:10px;display:none;
 }
 .slider img.active{display:block;}
 
 .slider button{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-border:none;
-background:black;
-color:white;
-border-radius:50%;
-padding:6px;
-cursor:pointer;
+position:absolute;top:50%;transform:translateY(-50%);
+border:none;background:black;color:white;
+border-radius:50%;padding:6px;cursor:pointer;
 }
 .prev{left:5px;}
 .next{right:5px;}
 
-/* BOTON */
 .btn{
-display:block;
-text-align:center;
-background:#25D366;
-color:white;
-padding:10px;
-margin-top:10px;
-border-radius:8px;
-font-weight:bold;
-text-decoration:none;
-}
-
-.top{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#2563eb;
-color:white;
-border:none;
-padding:10px;
-border-radius:50%;
-cursor:pointer;
+display:block;text-align:center;
+background:#25D366;color:white;
+padding:10px;margin-top:10px;
+border-radius:8px;text-decoration:none;
 }
 </style>
 </head>
@@ -119,11 +63,10 @@ cursor:pointer;
 <body>
 
 <header>
-<h1>NEXORA PRO 🛍️</h1>
-<p>Tienda completa profesional</p>
+<h1>NEXORA 🛍️</h1>
 </header>
 
-<!-- MENU -->
+<!-- MENÚ -->
 <div class="menu">
 <button onclick="openCat('sudaderas')">Sudaderas</button>
 <button onclick="openCat('camisas')">Camisas</button>
@@ -142,125 +85,106 @@ window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
 
-<!-- ====================== FUNCION PRODUCTO ====================== -->
+<!-- ================== DATOS (FÁCIL DE EDITAR) ================== -->
+
 <script>
-function productCard(cat, n){
-return `
+const data = {
+
+sudaderas: [
+{nombre:"Sudadera 1",precio:"$999 MXN",img:["s1-1.png","s1-2.png","s1-3.png"]},
+{nombre:"Sudadera 2",precio:"$999 MXN",img:["s2-1.png","s2-2.png","s2-3.png"]},
+{nombre:"Sudadera 3",precio:"$999 MXN",img:["s3-1.png","s3-2.png","s3-3.png"]},
+{nombre:"Sudadera 4",precio:"$999 MXN",img:["s4-1.png","s4-2.png","s4-3.png"]},
+{nombre:"Sudadera 5",precio:"$999 MXN",img:["s5-1.png","s5-2.png","s5-3.png"]},
+{nombre:"Sudadera 6",precio:"$999 MXN",img:["s6-1.png","s6-2.png","s6-3.png"]},
+{nombre:"Sudadera 7",precio:"$999 MXN",img:["s7-1.png","s7-2.png","s7-3.png"]},
+{nombre:"Sudadera 8",precio:"$999 MXN",img:["s8-1.png","s8-2.png","s8-3.png"]},
+{nombre:"Sudadera 9",precio:"$999 MXN",img:["s9-1.png","s9-2.png","s9-3.png"]},
+{nombre:"Sudadera 10",precio:"$999 MXN",img:["s10-1.png","s10-2.png","s10-3.png"]},
+],
+
+camisas: [
+{nombre:"Camisa 1",precio:"$799 MXN",img:["c1-1.png","c1-2.png","c1-3.png"]},
+{nombre:"Camisa 2",precio:"$799 MXN",img:["c2-1.png","c2-2.png","c2-3.png"]},
+{nombre:"Camisa 3",precio:"$799 MXN",img:["c3-1.png","c3-2.png","c3-3.png"]},
+{nombre:"Camisa 4",precio:"$799 MXN",img:["c4-1.png","c4-2.png","c4-3.png"]},
+{nombre:"Camisa 5",precio:"$799 MXN",img:["c5-1.png","c5-2.png","c5-3.png"]},
+{nombre:"Camisa 6",precio:"$799 MXN",img:["c6-1.png","c6-2.png","c6-3.png"]},
+{nombre:"Camisa 7",precio:"$799 MXN",img:["c7-1.png","c7-2.png","c7-3.png"]},
+{nombre:"Camisa 8",precio:"$799 MXN",img:["c8-1.png","c8-2.png","c8-3.png"]},
+{nombre:"Camisa 9",precio:"$799 MXN",img:["c9-1.png","c9-2.png","c9-3.png"]},
+{nombre:"Camisa 10",precio:"$799 MXN",img:["c10-1.png","c10-2.png","c10-3.png"]},
+],
+
+shorts: [],
+perfumes: [],
+gorras: [],
+tenis: [],
+originales: []
+
+};
+</script>
+
+<!-- ================== SECCIONES ================== -->
+
+<div id="sudaderas" class="section active"><h2>Sudaderas</h2><div class="grid" id="sudaderasGrid"></div></div>
+<div id="camisas" class="section"><h2>Camisas</h2><div class="grid" id="camisasGrid"></div></div>
+<div id="shorts" class="section"><h2>Shorts</h2><div class="grid" id="shortsGrid"></div></div>
+<div id="perfumes" class="section"><h2>Perfumes</h2><div class="grid" id="perfumesGrid"></div></div>
+<div id="gorras" class="section"><h2>Gorras</h2><div class="grid" id="gorrasGrid"></div></div>
+<div id="tenis" class="section"><h2>Tenis</h2><div class="grid" id="tenisGrid"></div></div>
+<div id="originales" class="section"><h2>Originales</h2><div class="grid" id="originalesGrid"></div></div>
+
+<script>
+const cats = Object.keys(data);
+
+cats.forEach(cat=>{
+let grid = document.getElementById(cat+"Grid");
+let html="";
+
+data[cat].forEach(p=>{
+html+=`
 <div class="card">
   <div class="slider">
     <button class="prev">◀</button>
-
-    <img class="active" src="${cat}${n}-1.png">
-    <img src="${cat}${n}-2.png">
-    <img src="${cat}${n}-3.png">
-
+    <img class="active" src="${p.img[0]}">
+    <img src="${p.img[1]}">
+    <img src="${p.img[2]}">
     <button class="next">▶</button>
   </div>
 
-  <h3>${cat.toUpperCase()} Producto ${n}</h3>
-  <p>$999 MXN</p>
+  <h3>${p.nombre}</h3>
+  <p>${p.precio}</p>
   <a class="btn pedir">Pedir</a>
 </div>
 `;
-}
-</script>
-
-<!-- ====================== SUDADERAS ====================== -->
-<div id="sudaderas" class="section active">
-<h2>Sudaderas</h2>
-<div class="grid" id="sudaderasGrid"></div>
-</div>
-
-<!-- ====================== CAMISAS ====================== -->
-<div id="camisas" class="section">
-<h2>Camisas</h2>
-<div class="grid" id="camisasGrid"></div>
-</div>
-
-<!-- ====================== SHORTS ====================== -->
-<div id="shorts" class="section">
-<h2>Shorts</h2>
-<div class="grid" id="shortsGrid"></div>
-</div>
-
-<!-- ====================== PERFUMES ====================== -->
-<div id="perfumes" class="section">
-<h2>Perfumes</h2>
-<div class="grid" id="perfumesGrid"></div>
-</div>
-
-<!-- ====================== GORRAS ====================== -->
-<div id="gorras" class="section">
-<h2>Gorras</h2>
-<div class="grid" id="gorrasGrid"></div>
-</div>
-
-<!-- ====================== TENIS ====================== -->
-<div id="tenis" class="section">
-<h2>Tenis</h2>
-<div class="grid" id="tenisGrid"></div>
-</div>
-
-<!-- ====================== ORIGINALES ====================== -->
-<div id="originales" class="section">
-<h2>Originales</h2>
-<div class="grid" id="originalesGrid"></div>
-</div>
-
-<!-- BOTON TOP -->
-<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<script>
-const categories = ["sudaderas","camisas","shorts","perfumes","gorras","tenis","originales"];
-
-// CREAR 10 PRODUCTOS POR CATEGORÍA
-categories.forEach(cat=>{
-  let grid = document.getElementById(cat+"Grid");
-  let html = "";
-
-  for(let i=1;i<=10;i++){
-    html += productCard(cat,i);
-  }
-
-  grid.innerHTML = html;
 });
 
+grid.innerHTML=html;
+});
 
 // WHATSAPP + CARRUSEL
-document.addEventListener("click", function(e){
+document.addEventListener("click",e=>{
 
-// WHATSAPP
 if(e.target.classList.contains("pedir")){
-  let card = e.target.closest(".card");
-  let name = card.querySelector("h3").innerText;
-
-  window.open(
-    `https://wa.me/523329166067?text=${encodeURIComponent("Hola quiero el " + name)}`
-  );
+let name=e.target.closest(".card").querySelector("h3").innerText;
+window.open("https://wa.me/523329166067?text="+encodeURIComponent("Quiero el "+name));
 }
 
-// NEXT
 if(e.target.classList.contains("next")){
-  let slider = e.target.closest(".slider");
-  let imgs = slider.querySelectorAll("img");
-
-  let active = [...imgs].findIndex(i=>i.classList.contains("active"));
-  imgs[active].classList.remove("active");
-  imgs[(active+1)%imgs.length].classList.add("active");
+let s=e.target.closest(".slider");
+let imgs=s.querySelectorAll("img");
+let i=[...imgs].findIndex(x=>x.classList.contains("active"));
+imgs[i].classList.remove("active");
+imgs[(i+1)%imgs.length].classList.add("active");
 }
 
-// PREV
 if(e.target.classList.contains("prev")){
-  let slider = e.target.closest(".slider");
-  let imgs = slider.querySelectorAll("img");
-
-  let active = [...imgs].findIndex(i=>i.classList.contains("active"));
-  imgs[active].classList.remove("active");
-
-  let newIndex = active-1;
-  if(newIndex<0)newIndex=imgs.length-1;
-
-  imgs[newIndex].classList.add("active");
+let s=e.target.closest(".slider");
+let imgs=s.querySelectorAll("img");
+let i=[...imgs].findIndex(x=>x.classList.contains("active"));
+imgs[i].classList.remove("active");
+imgs[(i-1+imgs.length)%imgs.length].classList.add("active");
 }
 
 });
