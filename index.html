@@ -50,11 +50,13 @@ border-radius:8px;
 
 .btn{
 display:inline-block;
-background:#2563eb;
+background:#25D366;
 color:white;
 padding:10px 14px;
 text-decoration:none;
 border-radius:8px;
+font-weight:bold;
+cursor:pointer;
 }
 
 nav{
@@ -78,32 +80,46 @@ padding:15px;
   <img src="producto1.png">
   <h3>HODDIE JET BLACK ZIP UP ESSENTIALS</h3>
   <p>$999 MXN</p>
-  <a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%201">Pedir</a>
+  <a class="btn pedir">Pedir</a>
 </div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+2"><h3>Producto 2</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%202">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+2"><h3>Producto 2</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+3"><h3>Producto 3</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%203">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+3"><h3>Producto 3</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+4"><h3>Producto 4</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%204">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+4"><h3>Producto 4</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+5"><h3>Producto 5</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%205">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+5"><h3>Producto 5</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+6"><h3>Producto 6</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%206">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+6"><h3>Producto 6</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+7"><h3>Producto 7</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%207">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+7"><h3>Producto 7</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+8"><h3>Producto 8</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%208">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+8"><h3>Producto 8</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+9"><h3>Producto 9</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%209">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+9"><h3>Producto 9</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
-<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+10"><h3>Producto 10</h3><p>$999 MXN</p><a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2010">Pedir</a></div>
+<div class="card"><img src="https://via.placeholder.com/300x180?text=Producto+10"><h3>Producto 10</h3><p>$999 MXN</p><a class="btn pedir">Pedir</a></div>
 
 </div>
 
 <nav>
 <a href="pagina2.html">Página 2 →</a>
 </nav>
+
+<!-- 🔥 MODO PRO WHATSAPP -->
+<script>
+document.querySelectorAll(".card").forEach(card => {
+  const nombre = card.querySelector("h3").innerText;
+  const btn = card.querySelector(".pedir");
+
+  btn.addEventListener("click", () => {
+    const mensaje = `Hola, quiero comprar el ${nombre}, ¿lo tienes disponible?`;
+    const url = `https://wa.me/523329166067?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+  });
+});
+</script>
 
 </body>
 </html>
