@@ -50,11 +50,13 @@ border-radius:8px;
 
 .btn{
 display:inline-block;
-background:#2563eb;
+background:#25D366;
 color:white;
 padding:10px 14px;
 text-decoration:none;
 border-radius:8px;
+font-weight:bold;
+cursor:pointer;
 }
 </style>
 </head>
@@ -68,84 +70,74 @@ border-radius:8px;
 
 <div class="grid">
 
-<!-- PRODUCTO 11 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+11">
 <h3>Producto 11</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2011">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 12 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+12">
 <h3>Producto 12</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2012">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 13 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+13">
 <h3>Producto 13</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2013">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 14 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+14">
 <h3>Producto 14</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2014">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 15 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+15">
 <h3>Producto 15</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2015">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 16 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+16">
 <h3>Producto 16</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2016">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 17 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+17">
 <h3>Producto 17</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2017">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 18 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+18">
 <h3>Producto 18</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2018">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 19 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+19">
 <h3>Producto 19</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2019">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
-<!-- PRODUCTO 20 -->
 <div class="card">
 <img src="https://via.placeholder.com/300x180?text=Producto+20">
 <h3>Producto 20</h3>
 <p>$999 MXN</p>
-<a class="btn" href="https://wa.me/523329166067?text=Me%20interesa%20el%20Producto%2020">Pedir</a>
+<a class="btn pedir">Pedir</a>
 </div>
 
 </div>
@@ -153,6 +145,20 @@ border-radius:8px;
 <div style="text-align:center;padding:15px">
 <a href="index.html">← Página 1</a>
 </div>
+
+<!-- 🔥 MODO PRO WHATSAPP -->
+<script>
+document.querySelectorAll(".card").forEach(card => {
+  const nombre = card.querySelector("h3").innerText;
+  const btn = card.querySelector(".pedir");
+
+  btn.addEventListener("click", () => {
+    const mensaje = `Hola, quiero comprar el ${nombre}, ¿lo tienes disponible?`;
+    const url = `https://wa.me/523329166067?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+  });
+});
+</script>
 
 </body>
 </html>
