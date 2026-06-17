@@ -250,12 +250,14 @@ html+=`
 ${data[cat].map(p=>`
 <div class="card">
   <div class="slider">
-    <button class="prev">◀</button>
-    <img class="active" src="${p.img[0]}">
-    <img src="${p.img[1]}">
-    <img src="${p.img[2]}">
-    <button class="next">▶</button>
-  </div>
+  ${p.img.length > 1 ? '<button class="prev">◀</button>' : ''}
+
+  ${p.img.map((imagen, index) => `
+    <img ${index === 0 ? 'class="active"' : ''} src="${imagen}">
+  `).join('')}
+
+  ${p.img.length > 1 ? '<button class="next">▶</button>' : ''}
+</div>
 
   <h3>${p.nombre}</h3>
   <p>${p.precio}</p>
